@@ -19,12 +19,14 @@ namespace SportsStore.Controllers
 
         public ViewResult List(string category, int productPage = 1) => View(new ProductListViewModel
         {
+
             //Продукты
             Products = repository.Products
             .Where(x => category == null || x.Category == category)
             .OrderBy(p => p.ProductID)
             .Skip((productPage - 1) * PageSize)
             .Take(PageSize),
+
             //Информация о странице
             PagingInfo = new PagingInfo
             {
@@ -32,6 +34,7 @@ namespace SportsStore.Controllers
                 ItemsPerPage = PageSize,
                 TotalItems = repository.Products.Count()
             },
+
             //Текущая категория
             CurrentCategory = category
         });
