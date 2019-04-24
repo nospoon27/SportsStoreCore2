@@ -11,6 +11,7 @@ using Moq;
 using SportsStore.Infrastructure;
 using SportsStore.Models.ViewModels;
 using System.Threading.Tasks;
+using SportsStore.Models;
 
 namespace SportsStore.Tests
 {
