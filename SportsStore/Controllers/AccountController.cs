@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SportsStore.Models.ViewModels;
+using SportsStore.Models;
 
 namespace SportsStore.Controllers
 {
@@ -19,7 +20,9 @@ namespace SportsStore.Controllers
         {
             userManager = userMgr;
             signInManager = signInMgr;
+            IdentitySeedData.EnsurePopulated(userMgr).Wait();
         }
+
         [AllowAnonymous]
         public ViewResult Login(string returnUrl)
         {
